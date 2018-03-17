@@ -1,0 +1,12 @@
+# DO Agent rules
+
+# These filter out particular logs from Digital Ocean's monitoring agent. While these may generate errors, DO Support team has acknowledged that they do not impact monitoring.
+
+# Sending metrics to DigitalOcean: Post <url> net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ do-agent\[\d+\]: [\d\/]{10} [\d:]{8} Sending metrics to DigitalOcean: Post .+ net\/http: request canceled \(Client\.Timeout exceeded while awaiting headers\)$
+
+# Sending metrics to DigitalOcean: Post <url> net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ do-agent\[\d+\]: [\d\/]{10} [\d:]{8} Sending metrics to DigitalOcean: Post .+ net\/http: request canceled while waiting for connection \(Client\.Timeout exceeded while awaiting headers\)$
+
+# Sending metrics to DigitalOcean: unexpected status code 503 while pushing to <url>
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ do-agent\[\d+\]: [\d\/]{10} [\d:]{8} Sending metrics to DigitalOcean: unexpected status code 503 while pushing to .+$
